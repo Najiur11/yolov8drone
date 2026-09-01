@@ -1,0 +1,24 @@
+📌 每个文件的作用速览：
+文件名	                作用	是否可删
+ci.yaml	                核心 CI 测试：运行单元测试、GPU 测试、 benchmarks、Raspberry Pi、Conda 环境等	    ❌ 绝对不可删
+cla.yml	                CLA 签署助手：要求贡献者签署贡献者协议	                                            ❌ 不可删（法律合规）
+codeql.yaml	            代码安全扫描：每月自动扫描 Python 代码漏洞	                                        ❌ 建议保留
+docker.yaml	            构建并发布 Docker 镜像到 DockerHub（支持多架构）	                                ❌ 不可删
+format.yml	            自动格式化代码和文档（Black、isort、Markdown、拼写检查）	                        ❌ 不可删
+greetings.yml	        新人欢迎机器人：自动回复首次 PR 或 Issue	                                        ✅ 可删（但建议保留）
+links.yml	            检测文档中的死链（每天运行）	                                                    ❌ 建议保留
+merge-main-into-prs.yml	自动将 main 分支合并到所有 open PR（防冲突）	                                    ✅ 可删（但有用）
+publish.yml	            发布 PyPI 包并部署文档（仅限维护者）	                                            ❌ 绝对不可删
+stale.yml	            自动关闭长期无活动的 Issue/PR	                                                ✅ 可删（但建议保留）
+
+✅ 可以删的（非核心）：
+    greetings.yml：只是欢迎语，不影响功能。
+    merge-main-into-prs.yml：可选自动化，删了也不会崩。
+    stale.yml：只是清理无效 PR/Issue，删了手动管理也行。
+
+❌ 绝对不能删的：
+    ci.yaml：测试不跑，合并代码就失控。
+    publish.yml：不发版，用户装不到新版本。
+    docker.yaml：Docker 镜像不更新，用户无法使用最新容器。
+    cla.yml：法律风险，贡献者协议不签不能合并 PR。
+    format.yml：代码风格失控，PR 风格混乱。

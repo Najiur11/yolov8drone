@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLO-based UAV visual target recognition system</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 用户信息栏 -->
+        <div class="user-bar">
+            <span>welcome, {{ username }}</span>
+            <a href="/logout" class="logout-btn">quit</a>
+        </div>
+
+        <!-- 连接状态指示器 -->
+        <div class="connection-status" id="connection-status">
+            Not connected
+        </div>
+
+        <!-- 处理状态指示器 -->
+        <div class="processing-status" id="processing-status">
+            Pending processing
+        </div>
+
+        <header>
+            <h1>YOLO-based UAV visual target recognition system</h1>
+        </header>
+
+        <div class="main-content">
+            <div class="control-panel">
+                <div class="section">
+                    <h2>Image processing</h2>
+                    <div class="file-info" id="image-info">No image selected</div>
+                    <input type="file" id="image-input" accept="image/*" />
+                    <button id="process-image-btn" onclick="processImage()">Image detection</button>
+                </div>
+
+                <div class="section">
+                    <h2>Video processing</h2>
+                    <div class="file-info" id="video-info">No video selected</div>
+                    <input type="file" id="video-input" accept="video/*" />
+                    <button id="process-video-btn" onclick="processVideo(false)">Dynamic recognition</button>
+                    <button id="track-video-btn" onclick="processVideo(true)">Path Analysis</button>
+                    <button id="stop-process-btn" onclick="stopProcessing()">Stop analysis</button>
+                </div>
+
+                <div class="progress-container" id="progress-container">
+                    <div class="progress-bar" id="progress-bar">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                    <div class="progress-text" id="progress-text">0%</div>
+                </div>
+            </div>
+
+            <div class="display-panel">
+                <div class="display-section">
+                    <h2>Original image</h2>
+                    <div class="frame-container">
+                        <img id="original-frame" src="" alt="Original image" />
+                    </div>
+                </div>
+
+                <div class="display-section">
+                    <h2>Processing results</h2>
+                    <div class="frame-container">
+                        <img id="processed-frame" src="" alt="Processing results" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 先加载 Socket.IO -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <!-- 然后加载自定义脚本 -->
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

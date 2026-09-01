@@ -1,0 +1,24 @@
+这些文件是 Ultralytics 官方文档中用于介绍“各类数据集”的页面，每一篇对应一个支持的公开或自建数据集，涵盖：
+    数据集简介（来源、规模、任务类型）
+    使用方法（Python / CLI 训练示例）
+    YAML 配置示例
+    样本图像与引用格式
+    如何接入 YOLOv8 训练流程
+
+📌 是否可以删除？按用途分类：
+
+类别	                                                                                                                            是否可删	 理由
+经典学术数据集                 CIFAR-10/100、ImageNet、COCO、VOC、MNIST、Fashion-MNIST、Caltech-101/256、ImageNette、ImageWoof	    ✅ 可删（但不建议）	用户可能搜索“如何用 YOLOv8 训练 CIFAR-10”，删掉会丢失流量与教程价值。
+YOLO 官方小型测试集            COCO8、COCO8-Pose、COCO8-Seg、DOTA8	                                                                ❌ 不建议删	用于 CI / 教程 / 快速测试，文档与代码强绑定。
+领域专用数据集                 Brain-Tumor、African-Wildlife、GlobalWheat、VisDrone、SKU-110K、Crack-Seg、Package-Seg、CarParts-Seg	✅ 可删（视受众）	如果项目不面向医疗/农业/无人机/零售等场景，可精简。
+格式说明与索引页               index.md（detect、classify、segment、pose、obb、track）	                                            ❌ 不可删	这是用户入口，删掉后整个数据集章节无法导航。
+Explorer 文档                explorer/api.md、dashboard.md、index.md	                                                            ✅ 可删（若无 Explorer 功能）	如果你没部署 Explorer 服务，这些就是空壳。
+
+✅ 可以删的（非核心）：
+    你不打算支持的任务类型（如 pose、obb、segment）
+    与你目标用户无关的领域数据集（如医疗、农业、卫星）
+    你没有实际镜像或下载渠道的数据集（否则用户看得到却下不到）
+❌ 不建议删的：
+    coco8.md、coco8-pose.md、coco8-seg.md、dota8.md                            → 代码里硬编码了这些路径，删掉会导致测试/教程失败。
+    所有 index.md（如 detect/index.md、classify/index.md）                      → 这些是导航入口，删了文档结构就断了。
+    explorer/index.md（如果你提供了 Explorer 功能）

@@ -1,0 +1,304 @@
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #333;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+/* 用户信息栏 */
+.user-bar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #1e3c72;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+    z-index: 1000;
+}
+
+.logout-btn {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 3px 8px;
+    border-radius: 3px;
+}
+
+.logout-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 状态指示器 */
+.connection-status,
+.processing-status {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 8px 15px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+.connection-status {
+    background-color: #ff6b6b;
+}
+
+.processing-status {
+    top: 50px;
+    background-color: #868e96;
+}
+
+/* 头部样式 */
+header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+/* 主要内容区域 */
+.main-content {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* 控制面板 */
+.control-panel {
+    flex: 1;
+    max-width: 350px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.section {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.section:last-child {
+    border-bottom: none;
+}
+
+.section h2 {
+    color: #1e3c72;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.file-info {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+input[type="file"] {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background-color: white;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1e3c72;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2a5298;
+}
+
+button:disabled {
+    background-color: #868e96;
+    cursor: not-allowed;
+}
+
+#process-image-btn {
+    background-color: #1e90ff;
+}
+
+#process-image-btn:hover {
+    background-color: #0077e6;
+}
+
+#process-video-btn {
+    background-color: #1e90ff;
+}
+
+#process-video-btn:hover {
+    background-color: #0077e6;
+}
+
+#track-video-btn {
+    background-color: #ff7f50;
+}
+
+#track-video-btn:hover {
+    background-color: #ff5722;
+}
+
+#stop-process-btn {
+    background-color: #dc3545;
+}
+
+#stop-process-btn:hover {
+    background-color: #c82333;
+}
+
+/* 进度条样式 */
+.progress-container {
+    margin-top: 20px;
+    display: none;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #1e90ff;
+    border-radius: 10px;
+    transition: width 0.3s;
+}
+
+.progress-text {
+    text-align: center;
+    font-weight: bold;
+    color: #1e3c72;
+}
+
+/* 显示面板 */
+.display-panel {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.display-section {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.display-section h2 {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 15px;
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.frame-container {
+    padding: 15px;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.frame-container img,
+.frame-container video {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .control-panel {
+        max-width: 100%;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        border-radius: 10px;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .section h2 {
+        font-size: 1.2rem;
+    }
+
+    .display-section h2 {
+        font-size: 1.1rem;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,15 @@
+📌 每个文件的作用与是否可删：
+
+文件名	                作用	                                            是否可删
+bug-report.yml	        Bug 报告模板，规范用户提交 bug 的格式	            ✅ 可删（但建议保留）
+config.yml	            Issue 页面配置，添加文档、论坛、Discord 入口	        ✅ 可删（但建议保留）
+feature-request.yml	    功能请求模板，引导用户描述需求	                    ✅ 可删（但建议保留）
+question.yml	        提问模板，避免用户乱开空白 issue	                    ✅ 可删（但建议保留）
+dependabot.yml	        自动更新依赖（pip + GitHub Actions）	            ❌ 不建议删（维护省力）
+
+✅ 可以删的（非核心）：
+    bug-report.yml、feature-request.yml、question.yml     → 删了后用户还能开 issue，只是格式混乱、信息不全，你会更累。
+    config.yml                                           → 删了后 Issue 页面没有快捷入口，用户体验下降。
+
+❌ 不建议删的：
+    dependabot.yml                                       → 自动提 PR 更新依赖，删了你得手动盯版本，容易落后或踩坑。
